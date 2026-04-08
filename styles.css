@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Variables de color ── */
+:root {
+  --bg:       #F5EDE8;
+  --surface:  #FDFAF7;
+  --rose:     #C4878A;
+  --mauve:    #9A6E79;
+  --sage:     #8A9E94;
+  --gold:     #C4A35A;
+  --text:     #2E2328;
+  --muted:    #9A8B8E;
+  --border:   #E3D5CE;
+  --card-sh:  rgba(154, 110, 121, 0.12);
+}
+
+/* ── Reset básico ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Layout general ── */
+body {
+  background: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--mauve);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* ── Ornamento decorativo ── */
+.ornament {
+  text-align: center;
+  color: var(--border);
+  font-size: 1.1rem;
+  letter-spacing: 0.5em;
+  margin: 1.6rem 0;
+}
+
+/* ── Tarjeta principal ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2.4rem 2.2rem 2rem;
+  box-shadow: 0 8px 32px var(--card-sh);
+}
+
+/* ── Campos del formulario ── */
+.field {
+  margin-bottom: 1.6rem;
+}
+
+label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.78rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(196, 135, 138, 0.15);
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+/* ── Botón ── */
+.btn {
+  width: 100%;
+  background: var(--mauve);
+  color: #FDF9F6;
+  border: none;
+  border-radius: 3px;
+  padding: 0.88rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  transition: background 0.18s, transform 0.1s;
+}
+
+.btn:hover  { background: var(--rose); }
+.btn:active { transform: scale(0.98); }
+
+/* ── Caja de resultado ── */
+#resultado {
+  display: none;
+  margin-top: 1.6rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: 3px;
+  border-left: 3px solid transparent;
+  animation: fadeUp 0.35s ease;
+}
+
+#resultado.aprobado  { background: rgba(138, 158, 148, 0.1); border-left-color: var(--sage); }
+#resultado.reprobado { background: rgba(196, 135, 138, 0.1); border-left-color: var(--rose); }
+#resultado.alerta    { background: rgba(196, 163,  90, 0.1); border-left-color: var(--gold); }
+
+.res-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.res-estado {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--mauve);
+}
+
+#resultado.aprobado  .res-estado { color: var(--sage); }
+#resultado.reprobado .res-estado { color: var(--rose); }
+#resultado.alerta    .res-estado { color: var(--gold); }
+
+.res-nota {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+/* ── Pie de página ── */
+.footer-line {
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-top: 1.8rem;
+}
+
+/* ── Animación ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
