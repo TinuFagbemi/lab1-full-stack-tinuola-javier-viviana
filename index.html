@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 01 – Verificador de Notas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div class="header">
+      <span class="eyebrow">Tarea 01 · HTML + JavaScript</span>
+      <h1>Verificador<br>de <em>Notas</em></h1>
+      <p class="subtitle">Ingresa tu nombre y nota para conocer tu resultado</p>
+    </div>
+
+    <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <div class="card">
+
+      <div class="field">
+        <label for="campoNombre">Nombre del estudiante</label>
+        <input type="text" id="campoNombre" placeholder="Ej: María García">
+      </div>
+
+      <div class="field">
+        <label for="campoNota">Nota obtenida (0 – 10)</label>
+        <input type="number" id="campoNota" placeholder="Ej: 7.5" min="0" max="10" step="0.1">
+      </div>
+
+      <button class="btn" onclick="verificarNota()">Verificar resultado</button>
+
+      <!-- Resultado dinámico -->
+      <div id="resultado">
+        <div class="res-label"  id="txtLabel"></div>
+        <div class="res-estado" id="txtEstado"></div>
+        <div class="res-nota"   id="txtNota"></div>
+      </div>
+
+    </div>
+
+    <p class="footer-line">HTML · CSS · JavaScript · DOM · Eventos · Condiciones</p>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
